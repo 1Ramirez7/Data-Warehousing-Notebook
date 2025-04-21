@@ -1,0 +1,14 @@
+---
+title: "Week Introdcutions"
+subtitle: ""
+format: html
+# use quarto markdown to 
+---
+
+
+
+
+
+
+- [Week 1 Introduction](/intro/week1.qmd)
+

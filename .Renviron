@@ -1,0 +1,3 @@
+QUARTO_PYTHON=C:/git/ITM/itm_nb/.venv/Scripts/python.exe
+TINYTEXT_ROOT=C:/git/ITM/itm_nb/.venv/TinyTeX
+RETICULATE_PYTHON=C:/git/ITM/itm_nb/.venv/Scripts/python.exe

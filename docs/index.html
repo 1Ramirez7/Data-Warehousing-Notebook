@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Albert Einstein – Albert Einstein’s Data Science Portfolio</title>
+<title>Data Warehousing – Data Warehousing Notebook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -40,14 +39,14 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-081d88d0d1b41bfd964ff18d5647c903.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-ed552497b652e94a043a49bcb61edf8f.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f3c2ea88cadbcfb37ba28ffa2c97cfc1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ae2d0dcda2edce4ab590422bb373b64f.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -74,79 +73,23 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Albert Einstein’s Data Science Portfolio</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./resume.html"> 
-<span class="menu-text">My Resume</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
-<span class="menu-text">Projects</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./instructions.html"> 
-<span class="menu-text">Instructions</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#get-started-instructions-for-using-this-portfolio-template" id="toc-get-started-instructions-for-using-this-portfolio-template" class="nav-link active" data-scroll-target="#get-started-instructions-for-using-this-portfolio-template">💡 Get Started: Instructions for Using this Portfolio Template 💡</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#skills-and-tools" id="toc-skills-and-tools" class="nav-link" data-scroll-target="#skills-and-tools">Skills and Tools</a></li>
-  <li><a href="#featured-projects" id="toc-featured-projects" class="nav-link" data-scroll-target="#featured-projects">Featured Projects</a>
-  <ul class="collapse">
-  <li><a href="#time-series-forecasting" id="toc-time-series-forecasting" class="nav-link" data-scroll-target="#time-series-forecasting">📈 <strong>Time Series Forecasting</strong></a></li>
-  <li><a href="#interactive-dashboards" id="toc-interactive-dashboards" class="nav-link" data-scroll-target="#interactive-dashboards">📊 <strong>Interactive Dashboards</strong></a>
-  <ul class="collapse">
-  <li><a href="#machine-learning-models" id="toc-machine-learning-models" class="nav-link" data-scroll-target="#machine-learning-models">🧠 <strong>Machine Learning Models</strong></a></li>
-  <li><a href="#geospatial-analysis" id="toc-geospatial-analysis" class="nav-link" data-scroll-target="#geospatial-analysis">🌍 <strong>Geospatial Analysis</strong></a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#contact-me" id="toc-contact-me" class="nav-link" data-scroll-target="#contact-me">Contact Me</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Albert Einstein</h1>
-<p class="subtitle lead">My Data Science Portfolio</p>
+<h1 class="title">Data Warehousing</h1>
+<p class="subtitle lead">Notebook</p>
 </div>
 
 
@@ -163,64 +106,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- You may want to use pacman to load r libraries. If you clone to a new device, you will have to make sure your r libraries are installed. This option loads and or installs the libraries if needed -->
-<!-- This link can be remove or edited to be use for one of your links. only here for initial instructions but it is not needed.-->
-<hr>
-<section id="get-started-instructions-for-using-this-portfolio-template" class="level2">
-<h2 class="anchored" data-anchor-id="get-started-instructions-for-using-this-portfolio-template">💡 <a href="./instructions.html">Get Started: Instructions for Using this Portfolio Template</a> 💡</h2>
-<hr>
-<!-- this 3 lines can also be deleted since they make part of the vizuals for the get started portion of the portfolio. -->
-</section>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Welcome! This portfolio highlights my data science expertise, including practical projects and analytical techniques. Below, you’ll find examples of my work, ranging from predictive modeling to interactive visualizations.</p>
-<hr>
-</section>
-<section id="skills-and-tools" class="level1">
-<h1>Skills and Tools</h1>
+<p><strong>Week 1 introduction notes</strong></p>
 <ul>
-<li><strong>Data Wrangling</strong>: Proficient in cleaning and transforming large datasets.</li>
-<li><strong>Programming Languages</strong>: Python, R, SQL</li>
-<li><strong>Advanced Analytics</strong>: Machine learning, deep learning, time series modeling.</li>
-<li><strong>Specializations</strong>: Time Series Analysis, Machine Learning, Data Visualization</li>
-<li><strong>Tools</strong>: RStudio, Jupyter Notebook, Tableau, Git</li>
+<li><p><a href="./intro/week1.html">Week 1 introduction</a></p></li>
+<li><p><a href="./intro/week2.html">View Project</a></p></li>
+<li><p><a href="./intro/week3.html">View Details</a></p></li>
+<li><p><a href="./intro/week3.html">View Details</a></p></li>
 </ul>
 <hr>
-</section>
-<section id="featured-projects" class="level1">
-<h1>Featured Projects</h1>
-<section id="time-series-forecasting" class="level2">
-<h2 class="anchored" data-anchor-id="time-series-forecasting">📈 <strong>Time Series Forecasting</strong></h2>
-<p>Analyzed and forecasted sales trends using advanced time series models in R.<br>
-- Tools: tsibble, fable, feasts<br>
-- <a href="./projects/project1.html">View Project</a></p>
-</section>
-<section id="interactive-dashboards" class="level2">
-<h2 class="anchored" data-anchor-id="interactive-dashboards">📊 <strong>Interactive Dashboards</strong></h2>
-<p>Developed dynamic dashboards to visualize COVID-19 data trends.<br>
-- Tools: Shiny, ggplot2<br>
-- <a href="./projects/project2.html">View Project</a></p>
-<section id="machine-learning-models" class="level3">
-<h3 class="anchored" data-anchor-id="machine-learning-models">🧠 <strong>Machine Learning Models</strong></h3>
-<p>Built classification models to predict customer churn with 90% accuracy.<br>
-- <a href="./projects/project3.html">View Details</a></p>
-</section>
-<section id="geospatial-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="geospatial-analysis">🌍 <strong>Geospatial Analysis</strong></h3>
-<p>Mapped environmental data to identify climate patterns and trends.<br>
-- <a href="./projects/project3.html">View Details</a></p>
-<hr>
-</section>
-</section>
-</section>
-<section id="contact-me" class="level1">
-<h1>Contact Me</h1>
-<p>Feel free to reach out for collaboration or inquiries.<br>
-- <strong>Email</strong>: albert.einstein@example.com<br>
-- <strong>LinkedIn</strong>: <a href="https://linkedin.com/">Albert’s Profile</a></p>
 
 
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -785,26 +680,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Albert Einstein 1400©</p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/">
-      <i class="bi bi-linkedin" role="img">
-</i> 
-    </a>
-  </li>  
-</ul>
-    </div>
-  </div>
-</footer>
 
 
 
