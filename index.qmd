@@ -9,6 +9,40 @@ format: html
 
 **Week 1 introduction notes**
 
+
+## 📝 Quick Summary: Week 1 Concepts
+
+### 🔹 Data Mart
+- Subset of a data warehouse.
+- Department-specific (e.g., sales, finance).
+- Fast, small-scale, quick deployment.
+- Uses **star schema**.
+- Retains **summarized data**, short-term.
+- Easier to manage (< 100GB).
+- Can be dependent, independent, or hybrid.
+
+### 🔹 Data Warehouse
+- Central data repository for entire org.
+- Integrates multiple subject areas.
+- Large-scale, long-term historical storage.
+- Uses complex schemas (star, snowflake, etc).
+- Supports deep analytics and BI.
+- Stores detailed **normalized/denormalized** data.
+- Subject-oriented and time-variant.
+
+### 🔹 Reliability
+- System works correctly even if parts fail.
+- Needs testing, error recovery, monitoring.
+
+### 🔹 Scalability
+- Handles growth in data/users/load.
+- Measured using response time, load metrics.
+
+### 🔹 Maintainability
+- Easy to fix, extend, and operate.
+- Key principles: **operability**, **simplicity**, **evolvability**.
+
+
 - [Week 1 introduction](intro/week1.qmd)
 
 

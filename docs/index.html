@@ -80,8 +80,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quick-summary-week-1-concepts" id="toc-quick-summary-week-1-concepts" class="nav-link active" data-scroll-target="#quick-summary-week-1-concepts">📝 Quick Summary: Week 1 Concepts</a>
+  <ul class="collapse">
+  <li><a href="#data-mart" id="toc-data-mart" class="nav-link" data-scroll-target="#data-mart">🔹 Data Mart</a></li>
+  <li><a href="#data-warehouse" id="toc-data-warehouse" class="nav-link" data-scroll-target="#data-warehouse">🔹 Data Warehouse</a></li>
+  <li><a href="#reliability" id="toc-reliability" class="nav-link" data-scroll-target="#reliability">🔹 Reliability</a></li>
+  <li><a href="#scalability" id="toc-scalability" class="nav-link" data-scroll-target="#scalability">🔹 Scalability</a></li>
+  <li><a href="#maintainability" id="toc-maintainability" class="nav-link" data-scroll-target="#maintainability">🔹 Maintainability</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -107,7 +120,51 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><strong>Week 1 introduction notes</strong></p>
+<section id="quick-summary-week-1-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="quick-summary-week-1-concepts">📝 Quick Summary: Week 1 Concepts</h2>
+<section id="data-mart" class="level3">
+<h3 class="anchored" data-anchor-id="data-mart">🔹 Data Mart</h3>
 <ul>
+<li>Subset of a data warehouse.</li>
+<li>Department-specific (e.g., sales, finance).</li>
+<li>Fast, small-scale, quick deployment.</li>
+<li>Uses <strong>star schema</strong>.</li>
+<li>Retains <strong>summarized data</strong>, short-term.</li>
+<li>Easier to manage (&lt; 100GB).</li>
+<li>Can be dependent, independent, or hybrid.</li>
+</ul>
+</section>
+<section id="data-warehouse" class="level3">
+<h3 class="anchored" data-anchor-id="data-warehouse">🔹 Data Warehouse</h3>
+<ul>
+<li>Central data repository for entire org.</li>
+<li>Integrates multiple subject areas.</li>
+<li>Large-scale, long-term historical storage.</li>
+<li>Uses complex schemas (star, snowflake, etc).</li>
+<li>Supports deep analytics and BI.</li>
+<li>Stores detailed <strong>normalized/denormalized</strong> data.</li>
+<li>Subject-oriented and time-variant.</li>
+</ul>
+</section>
+<section id="reliability" class="level3">
+<h3 class="anchored" data-anchor-id="reliability">🔹 Reliability</h3>
+<ul>
+<li>System works correctly even if parts fail.</li>
+<li>Needs testing, error recovery, monitoring.</li>
+</ul>
+</section>
+<section id="scalability" class="level3">
+<h3 class="anchored" data-anchor-id="scalability">🔹 Scalability</h3>
+<ul>
+<li>Handles growth in data/users/load.</li>
+<li>Measured using response time, load metrics.</li>
+</ul>
+</section>
+<section id="maintainability" class="level3">
+<h3 class="anchored" data-anchor-id="maintainability">🔹 Maintainability</h3>
+<ul>
+<li><p>Easy to fix, extend, and operate.</p></li>
+<li><p>Key principles: <strong>operability</strong>, <strong>simplicity</strong>, <strong>evolvability</strong>.</p></li>
 <li><p><a href="./intro/week1.html">Week 1 introduction</a></p></li>
 <li><p><a href="./intro/week2.html">View Project</a></p></li>
 <li><p><a href="./intro/week3.html">View Details</a></p></li>
@@ -116,6 +173,8 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 
 
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

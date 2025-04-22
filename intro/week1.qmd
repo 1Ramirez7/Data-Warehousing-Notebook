@@ -30,6 +30,9 @@ Learn the difference between a data mart and a data warehouse.
 ## ✅ Reading Outcomes
 
 
+
+![Data Warehouse & Data Marts](https://raw.githubusercontent.com/1Ramirez7/Data-Warehousing-Notebook/main/Images/data-warehouse-layout.png){#fig-dataware_marts}
+
 **Use Cases: Data Marts vs. Data Warehouses**
 
 | Use Case                        | Scenario                                                                 | Role                                                                                 | Type           |
