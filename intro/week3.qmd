@@ -48,7 +48,7 @@ ETL may include extended phases such as:
 
 ### 1. **Extract**
 - Collects data from structured and semi-structured sources:
-  - Relational DBs, flat files, XML, JSON, APIs, web scraping
+  - Relational DBs(@fig-RDBMS @fig-relation_db), flat files, XML, JSON, APIs, web scraping
 - Performs **validation checks** on extracted data
 - May use:
   - SQL SELECT queries
@@ -84,12 +84,15 @@ ETL may include extended phases such as:
   - Drop/rebuild indexes before/after
   - Validate data *before* loading
   - Generate surrogate IDs outside of DB (ETL layer)
+  
+![ ](pngs/conventional_ETL_architecture.png){#fig-ETL}
+
 
 ---
 
 ## SQL Queries for Extraction
 
-- SQL is standard for querying relational DB sources
+- SQL is standard for querying relational DB (@fig-relation_db) sources
 - Common: `SELECT` (with filtering, joins)
 - Best practices:
   - Use **direct path extract** or **bulk unload** for large volume
@@ -203,3 +206,11 @@ ETL may include extended phases such as:
   - **Redshift**, **BigQuery**, **Snowflake**, **Parquet**, **DuckDB**
 
 > Ideal when disk I/O and large-scale scanning dominate workload
+
+
+
+# Appendix
+
+![Relational database terminology](pngs/relational_database_terminology.png){#fig-relation_db}
+
+![the general structure of a relational database](pngs/the_general_structure_of_a_relational_database.png){#fig-RDBMS}

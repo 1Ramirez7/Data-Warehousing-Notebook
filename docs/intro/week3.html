@@ -193,6 +193,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#tradeoffs" id="toc-tradeoffs" class="nav-link" data-scroll-target="#tradeoffs">Tradeoffs:</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a></li>
   </ul>
 </nav>
     </div>
@@ -255,7 +256,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Collects data from structured and semi-structured sources:
 <ul>
-<li>Relational DBs, flat files, XML, JSON, APIs, web scraping</li>
+<li>Relational DBs(<a href="#fig-RDBMS" class="quarto-xref">Figure&nbsp;3</a> <a href="#fig-relation_db" class="quarto-xref">Figure&nbsp;2</a>), flat files, XML, JSON, APIs, web scraping</li>
 </ul></li>
 <li>Performs <strong>validation checks</strong> on extracted data</li>
 <li>May use:
@@ -307,13 +308,23 @@ ul.task-list li input[type="checkbox"] {
 <li>Generate surrogate IDs outside of DB (ETL layer)</li>
 </ul></li>
 </ul>
+<div id="fig-ETL" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ETL-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pngs/conventional_ETL_architecture.png" id="fig-ETL" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-ETL-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
 <hr>
 </section>
 </section>
 <section id="sql-queries-for-extraction" class="level2">
 <h2 class="anchored" data-anchor-id="sql-queries-for-extraction">SQL Queries for Extraction</h2>
 <ul>
-<li>SQL is standard for querying relational DB sources</li>
+<li>SQL is standard for querying relational DB (<a href="#fig-relation_db" class="quarto-xref">Figure&nbsp;2</a>) sources</li>
 <li>Common: <code>SELECT</code> (with filtering, joins)</li>
 <li>Best practices:
 <ul>
@@ -501,10 +512,33 @@ ul.task-list li input[type="checkbox"] {
 <blockquote class="blockquote">
 <p>Ideal when disk I/O and large-scale scanning dominate workload</p>
 </blockquote>
-
-
 </section>
 </section>
+</section>
+<section id="appendix" class="level1">
+<h1>Appendix</h1>
+<div id="fig-relation_db" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-relation_db-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pngs/relational_database_terminology.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-relation_db-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Relational database terminology
+</figcaption>
+</figure>
+</div>
+<div id="fig-RDBMS" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-RDBMS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pngs/the_general_structure_of_a_relational_database.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-RDBMS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: the general structure of a relational database
+</figcaption>
+</figure>
+</div>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
