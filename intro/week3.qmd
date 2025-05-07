@@ -14,9 +14,9 @@ Learn how ETL moves data from native stores to a data mart or warehouse
 
 🎯 **Learning Outcomes**
 
--   Learn what extract, transform, and load (**ETL**) does.\
+-   Learn what extract, transform, and load (**ETL** @fig-ETL) does.\
 -   Learn what type of SQL queries are required to extract data.\
--   Learn what type of transformation is required to change the data from Online Transactional Processing (OLTP) format to Online Analytical Processing (OLAP).\
+-   Learn what type of transformation is required to change the data from Online Transactional Processing (OLTP) format to Online Analytical Processing (OLAP). @fig-OLAP_OLTP_users_systems F\
 -   Learn what type of loading mechanisms exist for major databases.
 
 ------------------------------------------------------------------------
@@ -48,7 +48,7 @@ ETL may include extended phases such as:
 
 ### 1. **Extract**
 - Collects data from structured and semi-structured sources:
-  - Relational DBs(@fig-RDBMS @fig-relation_db), flat files, XML, JSON, APIs, web scraping
+  - Relational DBs(@fig-RDBMS @fig-relation_db), flat files (@fig-flatfilemodel), XML, JSON, APIs, web scraping
 - Performs **validation checks** on extracted data
 - May use:
   - SQL SELECT queries
@@ -109,6 +109,8 @@ ETL may include extended phases such as:
 | Schema           | Normalized (3NF)                     | Denormalized (star/snowflake)        |
 | Purpose          | Operational/transactional            | Analytical, historical insights      |
 
+![OLAP and OLTP Systems connection to Users](pngs/OLAP_OLTP_users_systems.png){#fig-OLAP_OLTP_users_systems}
+
 ### Required Transformations:
 - **Data cleansing** (ensure quality)
 - **Data conformance** (unify formats)
@@ -147,17 +149,20 @@ ETL may include extended phases such as:
 
 ### B-Trees
 - Most common in OLTP RDBMS
-- Page-based, sorted by key
+- Page-based, sorted by key @fig-b-tree_index
 - Fast lookups and range queries
 - `O(log n)` performance
 
 ### SSTables (Sorted String Tables)
-- Immutable, sorted key-value segments
+- Immutable, sorted key-value segments @fig-sstable_index
 - Used in LSM-trees and Lucene
-- Merged in background for optimization
+- Merged in background for optimization @fig-merging_several_SSTable_segments
+
+
+
 
 ### LSM-Trees (Log-Structured Merge-Trees)
-- Stack of SSTables with background compaction
+- Stack of SSTables with background compaction @fig-compaction_key_value
 - Write-optimized: sequential disk writes
 - Efficient for range queries even at scale
 - Used in LevelDB, RocksDB, Cassandra, HBase, Lucene
@@ -167,16 +172,23 @@ ETL may include extended phases such as:
 - Not efficient for range queries
 - Used in relational DBs alongside B+ trees
 
+![Storing a log of key-value pairs in a CSV-like format, indexed with an in
+memory hash map.](pngs/in-memory-hash-map.png){#fig-in_memory_hasmap}
+
+
 ---
 
 ## Star and Snowflake Schemas for Analytics
 
-### Star Schema
-- Central **fact table** with numerical measures
+### Star Schema  
+- Central **fact table** with numerical measures @fig-starschema
 - Linked to multiple **dimension tables**
 - Dimensions: who, what, where, when, how
 - Example: `fact_sales` joins to `dim_store`, `dim_date`, `dim_product`
 - Simple structure → preferred for analyst queries
+
+![Star Schema - Source: Matt Tanguay Linkedin](pngs/star_schema.png){#fig-star_schema}
+
 
 ### Snowflake Schema
 - Normalized version of star schema
@@ -184,13 +196,16 @@ ETL may include extended phases such as:
 - Example: `dim_product` → `dim_category`, `dim_brand`
 - More joins, but saves space and increases structure
 
+![Snowflake Schema - Source: Matt Tanguay Linkedin](pngs/snowflake_Schema.png){#fig-snowflake_Schema}
+
+
 > OLAP cube metadata is usually generated from **star/snowflake** schemas.
 
 ---
 
 ## Column-Oriented Storage
 
-- Stores data **by column**, not by row
+- Stores data **by column**, not by row @fig-storing_rdb_by_column
 - Optimal for analytical queries that:
   - Access few columns across many rows
   - Use aggregate functions
@@ -214,3 +229,18 @@ ETL may include extended phases such as:
 ![Relational database terminology](pngs/relational_database_terminology.png){#fig-relation_db}
 
 ![the general structure of a relational database](pngs/the_general_structure_of_a_relational_database.png){#fig-RDBMS}
+
+![Flat File Model](pngs/flat_file_model.png){#fig-flatfilemodel}
+
+![Example of a star schema for use in a data warehouse.](pngs/star_schema_in_data_warehouse.png){#fig-starschema}
+
+![Storing relational data by column, rather than by row.](pngs/storing_relational_data_by_column.png){#fig-storing_rdb_by_column}
+
+![Looking up a key using a B-tree index](pngs/b-tree_index.png){#fig-b-tree_index}
+
+![An SSTable with an in-memory index.](pngs/sstable_inmemory_index.png){#fig-sstable_index}
+
+![ ](pngs/compaction_key_value.png){#fig-compaction_key_value}
+
+![Merging several SSTable segments, retaining only the most recent value
+ for each key.](pngs/merging_several_SSTable_segments.png){#fig-merging_several_SSTable_segments}

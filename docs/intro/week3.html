@@ -111,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../intro/week3.html">project 3 name</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../intro/week3.html">Week 3 Intro</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -132,19 +132,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../intro/week1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Project 1 name</span></a>
+ <span class="menu-text">Week 1 Intro</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../intro/week2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">project 2 name</span></a>
+ <span class="menu-text">Week 2 Intro</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../intro/week3.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">project 3 name</span></a>
+ <span class="menu-text">Week 3 Intro</span></a>
   </div>
 </li>
     </ul>
@@ -225,11 +225,11 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <p>🎯 <strong>Learning Outcomes</strong></p>
 <ul>
-<li>Learn what extract, transform, and load (<strong>ETL</strong>) does.<br>
+<li>Learn what extract, transform, and load (<strong>ETL</strong> <a href="#fig-ETL" class="quarto-xref">Figure&nbsp;1</a>) does.<br>
 </li>
 <li>Learn what type of SQL queries are required to extract data.<br>
 </li>
-<li>Learn what type of transformation is required to change the data from Online Transactional Processing (OLTP) format to Online Analytical Processing (OLAP).<br>
+<li>Learn what type of transformation is required to change the data from Online Transactional Processing (OLTP) format to Online Analytical Processing (OLAP). <a href="#fig-OLAP_OLTP_users_systems" class="quarto-xref">Figure&nbsp;2</a> F<br>
 </li>
 <li>Learn what type of loading mechanisms exist for major databases.</li>
 </ul>
@@ -256,7 +256,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Collects data from structured and semi-structured sources:
 <ul>
-<li>Relational DBs(<a href="#fig-RDBMS" class="quarto-xref">Figure&nbsp;3</a> <a href="#fig-relation_db" class="quarto-xref">Figure&nbsp;2</a>), flat files, XML, JSON, APIs, web scraping</li>
+<li>Relational DBs(<a href="#fig-RDBMS" class="quarto-xref">Figure&nbsp;7</a> <a href="#fig-relation_db" class="quarto-xref">Figure&nbsp;6</a>), flat files (<a href="#fig-flatfilemodel" class="quarto-xref">Figure&nbsp;8</a>), XML, JSON, APIs, web scraping</li>
 </ul></li>
 <li>Performs <strong>validation checks</strong> on extracted data</li>
 <li>May use:
@@ -324,7 +324,7 @@ Figure&nbsp;1
 <section id="sql-queries-for-extraction" class="level2">
 <h2 class="anchored" data-anchor-id="sql-queries-for-extraction">SQL Queries for Extraction</h2>
 <ul>
-<li>SQL is standard for querying relational DB (<a href="#fig-relation_db" class="quarto-xref">Figure&nbsp;2</a>) sources</li>
+<li>SQL is standard for querying relational DB (<a href="#fig-relation_db" class="quarto-xref">Figure&nbsp;6</a>) sources</li>
 <li>Common: <code>SELECT</code> (with filtering, joins)</li>
 <li>Best practices:
 <ul>
@@ -372,6 +372,16 @@ Figure&nbsp;1
 </tr>
 </tbody>
 </table>
+<div id="fig-OLAP_OLTP_users_systems" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-OLAP_OLTP_users_systems-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pngs/OLAP_OLTP_users_systems.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-OLAP_OLTP_users_systems-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: OLAP and OLTP Systems connection to Users
+</figcaption>
+</figure>
+</div>
 <section id="required-transformations" class="level3">
 <h3 class="anchored" data-anchor-id="required-transformations">Required Transformations:</h3>
 <ul>
@@ -424,7 +434,7 @@ Figure&nbsp;1
 <h3 class="anchored" data-anchor-id="b-trees">B-Trees</h3>
 <ul>
 <li>Most common in OLTP RDBMS</li>
-<li>Page-based, sorted by key</li>
+<li>Page-based, sorted by key <a href="#fig-b-tree_index" class="quarto-xref">Figure&nbsp;11</a></li>
 <li>Fast lookups and range queries</li>
 <li><code>O(log n)</code> performance</li>
 </ul>
@@ -432,15 +442,15 @@ Figure&nbsp;1
 <section id="sstables-sorted-string-tables" class="level3">
 <h3 class="anchored" data-anchor-id="sstables-sorted-string-tables">SSTables (Sorted String Tables)</h3>
 <ul>
-<li>Immutable, sorted key-value segments</li>
+<li>Immutable, sorted key-value segments <a href="#fig-sstable_index" class="quarto-xref">Figure&nbsp;12</a></li>
 <li>Used in LSM-trees and Lucene</li>
-<li>Merged in background for optimization</li>
+<li>Merged in background for optimization <a href="#fig-merging_several_SSTable_segments" class="quarto-xref">Figure&nbsp;14</a></li>
 </ul>
 </section>
 <section id="lsm-trees-log-structured-merge-trees" class="level3">
 <h3 class="anchored" data-anchor-id="lsm-trees-log-structured-merge-trees">LSM-Trees (Log-Structured Merge-Trees)</h3>
 <ul>
-<li>Stack of SSTables with background compaction</li>
+<li>Stack of SSTables with background compaction <a href="#fig-compaction_key_value" class="quarto-xref">Figure&nbsp;13</a></li>
 <li>Write-optimized: sequential disk writes</li>
 <li>Efficient for range queries even at scale</li>
 <li>Used in LevelDB, RocksDB, Cassandra, HBase, Lucene</li>
@@ -453,6 +463,16 @@ Figure&nbsp;1
 <li>Not efficient for range queries</li>
 <li>Used in relational DBs alongside B+ trees</li>
 </ul>
+<div id="fig-in_memory_hasmap" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-in_memory_hasmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pngs/in-memory-hash-map.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-in_memory_hasmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Storing a log of key-value pairs in a CSV-like format, indexed with an in memory hash map.
+</figcaption>
+</figure>
+</div>
 <hr>
 </section>
 </section>
@@ -461,12 +481,22 @@ Figure&nbsp;1
 <section id="star-schema" class="level3">
 <h3 class="anchored" data-anchor-id="star-schema">Star Schema</h3>
 <ul>
-<li>Central <strong>fact table</strong> with numerical measures</li>
+<li>Central <strong>fact table</strong> with numerical measures <a href="#fig-starschema" class="quarto-xref">Figure&nbsp;9</a></li>
 <li>Linked to multiple <strong>dimension tables</strong></li>
 <li>Dimensions: who, what, where, when, how</li>
 <li>Example: <code>fact_sales</code> joins to <code>dim_store</code>, <code>dim_date</code>, <code>dim_product</code></li>
 <li>Simple structure → preferred for analyst queries</li>
 </ul>
+<div id="fig-star_schema" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-star_schema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pngs/star_schema.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-star_schema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Star Schema - Source: Matt Tanguay Linkedin
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="snowflake-schema" class="level3">
 <h3 class="anchored" data-anchor-id="snowflake-schema">Snowflake Schema</h3>
@@ -476,6 +506,16 @@ Figure&nbsp;1
 <li>Example: <code>dim_product</code> → <code>dim_category</code>, <code>dim_brand</code></li>
 <li>More joins, but saves space and increases structure</li>
 </ul>
+<div id="fig-snowflake_Schema" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-snowflake_Schema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pngs/snowflake_Schema.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-snowflake_Schema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Snowflake Schema - Source: Matt Tanguay Linkedin
+</figcaption>
+</figure>
+</div>
 <blockquote class="blockquote">
 <p>OLAP cube metadata is usually generated from <strong>star/snowflake</strong> schemas.</p>
 </blockquote>
@@ -485,7 +525,7 @@ Figure&nbsp;1
 <section id="column-oriented-storage" class="level2">
 <h2 class="anchored" data-anchor-id="column-oriented-storage">Column-Oriented Storage</h2>
 <ul>
-<li>Stores data <strong>by column</strong>, not by row</li>
+<li>Stores data <strong>by column</strong>, not by row <a href="#fig-storing_rdb_by_column" class="quarto-xref">Figure&nbsp;10</a></li>
 <li>Optimal for analytical queries that:
 <ul>
 <li>Access few columns across many rows</li>
@@ -523,7 +563,7 @@ Figure&nbsp;1
 <img src="pngs/relational_database_terminology.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-relation_db-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Relational database terminology
+Figure&nbsp;6: Relational database terminology
 </figcaption>
 </figure>
 </div>
@@ -533,7 +573,77 @@ Figure&nbsp;2: Relational database terminology
 <img src="pngs/the_general_structure_of_a_relational_database.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-RDBMS-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: the general structure of a relational database
+Figure&nbsp;7: the general structure of a relational database
+</figcaption>
+</figure>
+</div>
+<div id="fig-flatfilemodel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flatfilemodel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pngs/flat_file_model.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flatfilemodel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Flat File Model
+</figcaption>
+</figure>
+</div>
+<div id="fig-starschema" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-starschema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pngs/star_schema_in_data_warehouse.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-starschema-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: Example of a star schema for use in a data warehouse.
+</figcaption>
+</figure>
+</div>
+<div id="fig-storing_rdb_by_column" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-storing_rdb_by_column-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pngs/storing_relational_data_by_column.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-storing_rdb_by_column-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: Storing relational data by column, rather than by row.
+</figcaption>
+</figure>
+</div>
+<div id="fig-b-tree_index" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-b-tree_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pngs/b-tree_index.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-b-tree_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: Looking up a key using a B-tree index
+</figcaption>
+</figure>
+</div>
+<div id="fig-sstable_index" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sstable_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pngs/sstable_inmemory_index.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sstable_index-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12: An SSTable with an in-memory index.
+</figcaption>
+</figure>
+</div>
+<div id="fig-compaction_key_value" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-compaction_key_value-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pngs/compaction_key_value.png" id="fig-compaction_key_value" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-compaction_key_value-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13
+</figcaption>
+</figure>
+</div>
+<div id="fig-merging_several_SSTable_segments" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-merging_several_SSTable_segments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pngs/merging_several_SSTable_segments.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-merging_several_SSTable_segments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14: Merging several SSTable segments, retaining only the most recent value for each key.
 </figcaption>
 </figure>
 </div>

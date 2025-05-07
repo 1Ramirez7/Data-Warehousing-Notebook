@@ -37,11 +37,11 @@ website:
       contents:
         - text: "Week Introductions"
           file: intro.qmd
-        - text: "Project 1 name"
+        - text: "Week 1 Intro"
           file: intro/week1.qmd
-        - text: "project 2 name"
+        - text: "Week 2 Intro"
           file: intro/week2.qmd
-        - text: "project 3 name"
+        - text: "Week 3 Intro"
           file: intro/week3.qmd
         #continue the pattern if you need more links
         #copy paste from title and keep it indented to sidebar to add additonal sidebar navigation for other pages

@@ -8,7 +8,7 @@ format:
     message: false
     warning: false
     embed-resources: true
-    toc: true
+    toc: false
     code-fold: true  
     math: katex # katex, mathjax, none
     code-tools: # this is to show source code
