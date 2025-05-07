@@ -1,6 +1,205 @@
 ---
-title: "Project title here"
-subtitle: "can delete this if not needed"
+title: "Week 3 Introduction"
 format: html
+execute:
+  cache: false
+  freeze: false
 ---
 
+# 🧠 Learning Objective
+
+Learn how ETL moves data from native stores to a data mart or warehouse
+
+------------------------------------------------------------------------
+
+🎯 **Learning Outcomes**
+
+-   Learn what extract, transform, and load (**ETL**) does.\
+-   Learn what type of SQL queries are required to extract data.\
+-   Learn what type of transformation is required to change the data from Online Transactional Processing (OLTP) format to Online Analytical Processing (OLAP).\
+-   Learn what type of loading mechanisms exist for major databases.
+
+------------------------------------------------------------------------
+
+📘 **Reading Assignment**
+
+**Chapter 3** — *Storage and Retrieval*
+
+------------------------------------------------------------------------
+
+## ✅ Reading Outcomes
+
+-   Learn the meaning of hash indexes, SSTables, LSM-Trees, and B-Trees.\
+-   Learn the meaning of star and snowflake schemas for analytics.\
+-   Learn the meaning of column-oriented storage.
+
+
+
+## ETL Process and Data Movement
+
+Extract, Transform, Load (ETL) is a **three-phase computing process** used to combine and synthesize raw data from multiple data sources into a data warehouse, data lake, or other data store. It is central to building OLAP systems from OLTP sources.
+
+ETL may include extended phases such as:
+- Cycle initiation
+- Reference data setup
+- Staging and validation
+- Audit reporting
+- Publishing and archiving
+
+### 1. **Extract**
+- Collects data from structured and semi-structured sources:
+  - Relational DBs, flat files, XML, JSON, APIs, web scraping
+- Performs **validation checks** on extracted data
+- May use:
+  - SQL SELECT queries
+  - Direct path extract
+  - Bulk unload for performance
+
+### 2. **Transform**
+- Applies transformations to prepare data for analytical storage:
+  - Data cleansing
+  - Column filtering/renaming
+  - Value translation/encoding
+  - Derived metrics (e.g., revenue = qty × price)
+  - Joins, aggregations, and deduplication
+  - Surrogate key generation
+  - Transpose, split/disaggregate columns
+  - Data validation
+
+- Converts OLTP → OLAP:
+  - Normalized → Denormalized (Star or Snowflake schema)
+  - Build **fact tables** (measures + FKs)
+  - Build **dimension tables** (contextual attributes)
+  - Add surrogate keys (support SCDs)
+  - Aggregate for summary analytics
+
+### 3. **Load**
+- Loads data into final analytical target:
+  - Data warehouse, lake, mart
+  - May overwrite or append (based on historical tracking)
+
+- Optimizations:
+  - Use **bulk load** and **parallel loading** (if partitioned)
+  - Disable constraints/triggers during load
+  - Drop/rebuild indexes before/after
+  - Validate data *before* loading
+  - Generate surrogate IDs outside of DB (ETL layer)
+
+---
+
+## SQL Queries for Extraction
+
+- SQL is standard for querying relational DB sources
+- Common: `SELECT` (with filtering, joins)
+- Best practices:
+  - Use **direct path extract** or **bulk unload** for large volume
+  - Avoid query-heavy extraction on OLTP systems
+
+---
+
+## Transformation from OLTP Format to OLAP Format
+
+| Aspect          | OLTP Systems                       | OLAP Systems                        |
+|------------------|--------------------------------------|--------------------------------------|
+| Query Volume     | High volume, short reads/writes      | Low volume, long, aggregate queries  |
+| Access Pattern   | Point queries by key                 | Scans across many rows               |
+| Schema           | Normalized (3NF)                     | Denormalized (star/snowflake)        |
+| Purpose          | Operational/transactional            | Analytical, historical insights      |
+
+### Required Transformations:
+- **Data cleansing** (ensure quality)
+- **Data conformance** (unify formats)
+- **Aggregation** (totals, averages)
+- **Surrogate keys** (independent warehouse IDs)
+- **Handle SCDs** (track historical changes)
+- **Schema restructuring** into:
+  - **Fact tables** (measures + FKs)
+  - **Dimension tables** (context: who/what/when/etc.)
+
+---
+
+## Loading Mechanisms for Major Databases
+
+- Target systems:
+  - Traditional RDBMS
+  - Data warehouses (e.g., Redshift, BigQuery, Synapse, Snowflake)
+  - Data lakes
+
+### Performance Techniques:
+- Use **bulk loading** tools
+- Use **parallel bulk load** for partitioned or index-free tables
+- **Pre-load validation** in ETL layer
+- **Disable integrity checks** temporarily
+- Generate IDs in ETL logic
+- Drop/rebuild indexes around load window
+
+- Alternative to API-based inserts/updates/deletes:
+  - Separate by operation type
+  - Use **bulk for inserts**, **SQL API for updates/deletes**
+  - Consider **replication** for DB-to-DB transfers
+
+---
+
+## Indexing Structures
+
+### B-Trees
+- Most common in OLTP RDBMS
+- Page-based, sorted by key
+- Fast lookups and range queries
+- `O(log n)` performance
+
+### SSTables (Sorted String Tables)
+- Immutable, sorted key-value segments
+- Used in LSM-trees and Lucene
+- Merged in background for optimization
+
+### LSM-Trees (Log-Structured Merge-Trees)
+- Stack of SSTables with background compaction
+- Write-optimized: sequential disk writes
+- Efficient for range queries even at scale
+- Used in LevelDB, RocksDB, Cassandra, HBase, Lucene
+
+### Hash Indexes
+- Constant time key lookups (if in-memory)
+- Not efficient for range queries
+- Used in relational DBs alongside B+ trees
+
+---
+
+## Star and Snowflake Schemas for Analytics
+
+### Star Schema
+- Central **fact table** with numerical measures
+- Linked to multiple **dimension tables**
+- Dimensions: who, what, where, when, how
+- Example: `fact_sales` joins to `dim_store`, `dim_date`, `dim_product`
+- Simple structure → preferred for analyst queries
+
+### Snowflake Schema
+- Normalized version of star schema
+- Dimension tables may be broken into sub-dimensions
+- Example: `dim_product` → `dim_category`, `dim_brand`
+- More joins, but saves space and increases structure
+
+> OLAP cube metadata is usually generated from **star/snowflake** schemas.
+
+---
+
+## Column-Oriented Storage
+
+- Stores data **by column**, not by row
+- Optimal for analytical queries that:
+  - Access few columns across many rows
+  - Use aggregate functions
+
+### Benefits:
+- Read fewer bytes → faster query execution
+- Improved compression (RLE, dictionary, bitmap)
+- Enables **vectorized processing**
+
+### Tradeoffs:
+- Writes are slower/harder to manage
+- Used in analytical DBs:
+  - **Redshift**, **BigQuery**, **Snowflake**, **Parquet**, **DuckDB**
+
+> Ideal when disk I/O and large-scale scanning dominate workload

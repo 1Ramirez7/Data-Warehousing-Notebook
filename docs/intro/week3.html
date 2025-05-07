@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Project title here – Data Warehousing Notebook</title>
+<title>Week 3 Introduction – Data Warehousing Notebook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -152,16 +152,56 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-objective" id="toc-learning-objective" class="nav-link active" data-scroll-target="#learning-objective">🧠 Learning Objective</a>
+  <ul class="collapse">
+  <li><a href="#reading-outcomes" id="toc-reading-outcomes" class="nav-link" data-scroll-target="#reading-outcomes">✅ Reading Outcomes</a></li>
+  <li><a href="#etl-process-and-data-movement" id="toc-etl-process-and-data-movement" class="nav-link" data-scroll-target="#etl-process-and-data-movement">ETL Process and Data Movement</a>
+  <ul class="collapse">
+  <li><a href="#extract" id="toc-extract" class="nav-link" data-scroll-target="#extract">1. <strong>Extract</strong></a></li>
+  <li><a href="#transform" id="toc-transform" class="nav-link" data-scroll-target="#transform">2. <strong>Transform</strong></a></li>
+  <li><a href="#load" id="toc-load" class="nav-link" data-scroll-target="#load">3. <strong>Load</strong></a></li>
+  </ul></li>
+  <li><a href="#sql-queries-for-extraction" id="toc-sql-queries-for-extraction" class="nav-link" data-scroll-target="#sql-queries-for-extraction">SQL Queries for Extraction</a></li>
+  <li><a href="#transformation-from-oltp-format-to-olap-format" id="toc-transformation-from-oltp-format-to-olap-format" class="nav-link" data-scroll-target="#transformation-from-oltp-format-to-olap-format">Transformation from OLTP Format to OLAP Format</a>
+  <ul class="collapse">
+  <li><a href="#required-transformations" id="toc-required-transformations" class="nav-link" data-scroll-target="#required-transformations">Required Transformations:</a></li>
+  </ul></li>
+  <li><a href="#loading-mechanisms-for-major-databases" id="toc-loading-mechanisms-for-major-databases" class="nav-link" data-scroll-target="#loading-mechanisms-for-major-databases">Loading Mechanisms for Major Databases</a>
+  <ul class="collapse">
+  <li><a href="#performance-techniques" id="toc-performance-techniques" class="nav-link" data-scroll-target="#performance-techniques">Performance Techniques:</a></li>
+  </ul></li>
+  <li><a href="#indexing-structures" id="toc-indexing-structures" class="nav-link" data-scroll-target="#indexing-structures">Indexing Structures</a>
+  <ul class="collapse">
+  <li><a href="#b-trees" id="toc-b-trees" class="nav-link" data-scroll-target="#b-trees">B-Trees</a></li>
+  <li><a href="#sstables-sorted-string-tables" id="toc-sstables-sorted-string-tables" class="nav-link" data-scroll-target="#sstables-sorted-string-tables">SSTables (Sorted String Tables)</a></li>
+  <li><a href="#lsm-trees-log-structured-merge-trees" id="toc-lsm-trees-log-structured-merge-trees" class="nav-link" data-scroll-target="#lsm-trees-log-structured-merge-trees">LSM-Trees (Log-Structured Merge-Trees)</a></li>
+  <li><a href="#hash-indexes" id="toc-hash-indexes" class="nav-link" data-scroll-target="#hash-indexes">Hash Indexes</a></li>
+  </ul></li>
+  <li><a href="#star-and-snowflake-schemas-for-analytics" id="toc-star-and-snowflake-schemas-for-analytics" class="nav-link" data-scroll-target="#star-and-snowflake-schemas-for-analytics">Star and Snowflake Schemas for Analytics</a>
+  <ul class="collapse">
+  <li><a href="#star-schema" id="toc-star-schema" class="nav-link" data-scroll-target="#star-schema">Star Schema</a></li>
+  <li><a href="#snowflake-schema" id="toc-snowflake-schema" class="nav-link" data-scroll-target="#snowflake-schema">Snowflake Schema</a></li>
+  </ul></li>
+  <li><a href="#column-oriented-storage" id="toc-column-oriented-storage" class="nav-link" data-scroll-target="#column-oriented-storage">Column-Oriented Storage</a>
+  <ul class="collapse">
+  <li><a href="#benefits" id="toc-benefits" class="nav-link" data-scroll-target="#benefits">Benefits:</a></li>
+  <li><a href="#tradeoffs" id="toc-tradeoffs" class="nav-link" data-scroll-target="#tradeoffs">Tradeoffs:</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project title here</h1>
-<p class="subtitle lead">can delete this if not needed</p>
+<h1 class="title">Week 3 Introduction</h1>
 </div>
 
 
@@ -178,8 +218,294 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="learning-objective" class="level1">
+<h1>🧠 Learning Objective</h1>
+<p>Learn how ETL moves data from native stores to a data mart or warehouse</p>
+<hr>
+<p>🎯 <strong>Learning Outcomes</strong></p>
+<ul>
+<li>Learn what extract, transform, and load (<strong>ETL</strong>) does.<br>
+</li>
+<li>Learn what type of SQL queries are required to extract data.<br>
+</li>
+<li>Learn what type of transformation is required to change the data from Online Transactional Processing (OLTP) format to Online Analytical Processing (OLAP).<br>
+</li>
+<li>Learn what type of loading mechanisms exist for major databases.</li>
+</ul>
+<hr>
+<p>📘 <strong>Reading Assignment</strong></p>
+<p><strong>Chapter 3</strong> — <em>Storage and Retrieval</em></p>
+<hr>
+<section id="reading-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="reading-outcomes">✅ Reading Outcomes</h2>
+<ul>
+<li>Learn the meaning of hash indexes, SSTables, LSM-Trees, and B-Trees.<br>
+</li>
+<li>Learn the meaning of star and snowflake schemas for analytics.<br>
+</li>
+<li>Learn the meaning of column-oriented storage.</li>
+</ul>
+</section>
+<section id="etl-process-and-data-movement" class="level2">
+<h2 class="anchored" data-anchor-id="etl-process-and-data-movement">ETL Process and Data Movement</h2>
+<p>Extract, Transform, Load (ETL) is a <strong>three-phase computing process</strong> used to combine and synthesize raw data from multiple data sources into a data warehouse, data lake, or other data store. It is central to building OLAP systems from OLTP sources.</p>
+<p>ETL may include extended phases such as: - Cycle initiation - Reference data setup - Staging and validation - Audit reporting - Publishing and archiving</p>
+<section id="extract" class="level3">
+<h3 class="anchored" data-anchor-id="extract">1. <strong>Extract</strong></h3>
+<ul>
+<li>Collects data from structured and semi-structured sources:
+<ul>
+<li>Relational DBs, flat files, XML, JSON, APIs, web scraping</li>
+</ul></li>
+<li>Performs <strong>validation checks</strong> on extracted data</li>
+<li>May use:
+<ul>
+<li>SQL SELECT queries</li>
+<li>Direct path extract</li>
+<li>Bulk unload for performance</li>
+</ul></li>
+</ul>
+</section>
+<section id="transform" class="level3">
+<h3 class="anchored" data-anchor-id="transform">2. <strong>Transform</strong></h3>
+<ul>
+<li>Applies transformations to prepare data for analytical storage:
+<ul>
+<li>Data cleansing</li>
+<li>Column filtering/renaming</li>
+<li>Value translation/encoding</li>
+<li>Derived metrics (e.g., revenue = qty × price)</li>
+<li>Joins, aggregations, and deduplication</li>
+<li>Surrogate key generation</li>
+<li>Transpose, split/disaggregate columns</li>
+<li>Data validation</li>
+</ul></li>
+<li>Converts OLTP → OLAP:
+<ul>
+<li>Normalized → Denormalized (Star or Snowflake schema)</li>
+<li>Build <strong>fact tables</strong> (measures + FKs)</li>
+<li>Build <strong>dimension tables</strong> (contextual attributes)</li>
+<li>Add surrogate keys (support SCDs)</li>
+<li>Aggregate for summary analytics</li>
+</ul></li>
+</ul>
+</section>
+<section id="load" class="level3">
+<h3 class="anchored" data-anchor-id="load">3. <strong>Load</strong></h3>
+<ul>
+<li>Loads data into final analytical target:
+<ul>
+<li>Data warehouse, lake, mart</li>
+<li>May overwrite or append (based on historical tracking)</li>
+</ul></li>
+<li>Optimizations:
+<ul>
+<li>Use <strong>bulk load</strong> and <strong>parallel loading</strong> (if partitioned)</li>
+<li>Disable constraints/triggers during load</li>
+<li>Drop/rebuild indexes before/after</li>
+<li>Validate data <em>before</em> loading</li>
+<li>Generate surrogate IDs outside of DB (ETL layer)</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="sql-queries-for-extraction" class="level2">
+<h2 class="anchored" data-anchor-id="sql-queries-for-extraction">SQL Queries for Extraction</h2>
+<ul>
+<li>SQL is standard for querying relational DB sources</li>
+<li>Common: <code>SELECT</code> (with filtering, joins)</li>
+<li>Best practices:
+<ul>
+<li>Use <strong>direct path extract</strong> or <strong>bulk unload</strong> for large volume</li>
+<li>Avoid query-heavy extraction on OLTP systems</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="transformation-from-oltp-format-to-olap-format" class="level2">
+<h2 class="anchored" data-anchor-id="transformation-from-oltp-format-to-olap-format">Transformation from OLTP Format to OLAP Format</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>OLTP Systems</th>
+<th>OLAP Systems</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Query Volume</td>
+<td>High volume, short reads/writes</td>
+<td>Low volume, long, aggregate queries</td>
+</tr>
+<tr class="even">
+<td>Access Pattern</td>
+<td>Point queries by key</td>
+<td>Scans across many rows</td>
+</tr>
+<tr class="odd">
+<td>Schema</td>
+<td>Normalized (3NF)</td>
+<td>Denormalized (star/snowflake)</td>
+</tr>
+<tr class="even">
+<td>Purpose</td>
+<td>Operational/transactional</td>
+<td>Analytical, historical insights</td>
+</tr>
+</tbody>
+</table>
+<section id="required-transformations" class="level3">
+<h3 class="anchored" data-anchor-id="required-transformations">Required Transformations:</h3>
+<ul>
+<li><strong>Data cleansing</strong> (ensure quality)</li>
+<li><strong>Data conformance</strong> (unify formats)</li>
+<li><strong>Aggregation</strong> (totals, averages)</li>
+<li><strong>Surrogate keys</strong> (independent warehouse IDs)</li>
+<li><strong>Handle SCDs</strong> (track historical changes)</li>
+<li><strong>Schema restructuring</strong> into:
+<ul>
+<li><strong>Fact tables</strong> (measures + FKs)</li>
+<li><strong>Dimension tables</strong> (context: who/what/when/etc.)</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="loading-mechanisms-for-major-databases" class="level2">
+<h2 class="anchored" data-anchor-id="loading-mechanisms-for-major-databases">Loading Mechanisms for Major Databases</h2>
+<ul>
+<li>Target systems:
+<ul>
+<li>Traditional RDBMS</li>
+<li>Data warehouses (e.g., Redshift, BigQuery, Synapse, Snowflake)</li>
+<li>Data lakes</li>
+</ul></li>
+</ul>
+<section id="performance-techniques" class="level3">
+<h3 class="anchored" data-anchor-id="performance-techniques">Performance Techniques:</h3>
+<ul>
+<li><p>Use <strong>bulk loading</strong> tools</p></li>
+<li><p>Use <strong>parallel bulk load</strong> for partitioned or index-free tables</p></li>
+<li><p><strong>Pre-load validation</strong> in ETL layer</p></li>
+<li><p><strong>Disable integrity checks</strong> temporarily</p></li>
+<li><p>Generate IDs in ETL logic</p></li>
+<li><p>Drop/rebuild indexes around load window</p></li>
+<li><p>Alternative to API-based inserts/updates/deletes:</p>
+<ul>
+<li>Separate by operation type</li>
+<li>Use <strong>bulk for inserts</strong>, <strong>SQL API for updates/deletes</strong></li>
+<li>Consider <strong>replication</strong> for DB-to-DB transfers</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="indexing-structures" class="level2">
+<h2 class="anchored" data-anchor-id="indexing-structures">Indexing Structures</h2>
+<section id="b-trees" class="level3">
+<h3 class="anchored" data-anchor-id="b-trees">B-Trees</h3>
+<ul>
+<li>Most common in OLTP RDBMS</li>
+<li>Page-based, sorted by key</li>
+<li>Fast lookups and range queries</li>
+<li><code>O(log n)</code> performance</li>
+</ul>
+</section>
+<section id="sstables-sorted-string-tables" class="level3">
+<h3 class="anchored" data-anchor-id="sstables-sorted-string-tables">SSTables (Sorted String Tables)</h3>
+<ul>
+<li>Immutable, sorted key-value segments</li>
+<li>Used in LSM-trees and Lucene</li>
+<li>Merged in background for optimization</li>
+</ul>
+</section>
+<section id="lsm-trees-log-structured-merge-trees" class="level3">
+<h3 class="anchored" data-anchor-id="lsm-trees-log-structured-merge-trees">LSM-Trees (Log-Structured Merge-Trees)</h3>
+<ul>
+<li>Stack of SSTables with background compaction</li>
+<li>Write-optimized: sequential disk writes</li>
+<li>Efficient for range queries even at scale</li>
+<li>Used in LevelDB, RocksDB, Cassandra, HBase, Lucene</li>
+</ul>
+</section>
+<section id="hash-indexes" class="level3">
+<h3 class="anchored" data-anchor-id="hash-indexes">Hash Indexes</h3>
+<ul>
+<li>Constant time key lookups (if in-memory)</li>
+<li>Not efficient for range queries</li>
+<li>Used in relational DBs alongside B+ trees</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="star-and-snowflake-schemas-for-analytics" class="level2">
+<h2 class="anchored" data-anchor-id="star-and-snowflake-schemas-for-analytics">Star and Snowflake Schemas for Analytics</h2>
+<section id="star-schema" class="level3">
+<h3 class="anchored" data-anchor-id="star-schema">Star Schema</h3>
+<ul>
+<li>Central <strong>fact table</strong> with numerical measures</li>
+<li>Linked to multiple <strong>dimension tables</strong></li>
+<li>Dimensions: who, what, where, when, how</li>
+<li>Example: <code>fact_sales</code> joins to <code>dim_store</code>, <code>dim_date</code>, <code>dim_product</code></li>
+<li>Simple structure → preferred for analyst queries</li>
+</ul>
+</section>
+<section id="snowflake-schema" class="level3">
+<h3 class="anchored" data-anchor-id="snowflake-schema">Snowflake Schema</h3>
+<ul>
+<li>Normalized version of star schema</li>
+<li>Dimension tables may be broken into sub-dimensions</li>
+<li>Example: <code>dim_product</code> → <code>dim_category</code>, <code>dim_brand</code></li>
+<li>More joins, but saves space and increases structure</li>
+</ul>
+<blockquote class="blockquote">
+<p>OLAP cube metadata is usually generated from <strong>star/snowflake</strong> schemas.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="column-oriented-storage" class="level2">
+<h2 class="anchored" data-anchor-id="column-oriented-storage">Column-Oriented Storage</h2>
+<ul>
+<li>Stores data <strong>by column</strong>, not by row</li>
+<li>Optimal for analytical queries that:
+<ul>
+<li>Access few columns across many rows</li>
+<li>Use aggregate functions</li>
+</ul></li>
+</ul>
+<section id="benefits" class="level3">
+<h3 class="anchored" data-anchor-id="benefits">Benefits:</h3>
+<ul>
+<li>Read fewer bytes → faster query execution</li>
+<li>Improved compression (RLE, dictionary, bitmap)</li>
+<li>Enables <strong>vectorized processing</strong></li>
+</ul>
+</section>
+<section id="tradeoffs" class="level3">
+<h3 class="anchored" data-anchor-id="tradeoffs">Tradeoffs:</h3>
+<ul>
+<li>Writes are slower/harder to manage</li>
+<li>Used in analytical DBs:
+<ul>
+<li><strong>Redshift</strong>, <strong>BigQuery</strong>, <strong>Snowflake</strong>, <strong>Parquet</strong>, <strong>DuckDB</strong></li>
+</ul></li>
+</ul>
+<blockquote class="blockquote">
+<p>Ideal when disk I/O and large-scale scanning dominate workload</p>
+</blockquote>
 
 
+</section>
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
