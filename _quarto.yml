@@ -1,6 +1,9 @@
 project: 
   type: website
   output-dir: docs # renders htmls to docs folder
+  
+freeze: false   # ⛔ disables auto-skip
+cache: false    # ⛔ disables .quarto or chunk caching
 
 website:
   title: "Data Warehousing Notebook"
@@ -10,17 +13,12 @@ website:
   #repo-actions: [issue] #if you want to allow others to report issues on your site uncomment this line
   
 
-execute:
-  freeze: false   # ⛔ disables auto-skip
-  cache: false    # ⛔ disables .quarto or chunk caching
-
   page-footer: 
     border: true
     left: "Eduardo Ramirez 2025©"
     right: 
       - icon: linkedin
         href: https://www.linkedin.com/
-
 
   navbar:
     background: primary
