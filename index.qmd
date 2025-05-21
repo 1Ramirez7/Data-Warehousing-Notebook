@@ -15,6 +15,11 @@ format:
       source: true 
       toggle: false
       caption: none
+listing:
+  contents: projects
+  sort: "date desc"
+  type: grid # default table grid
+  categories: cloud 
 ---
 
 
