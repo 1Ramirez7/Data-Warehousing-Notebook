@@ -5011,9 +5011,9 @@ vertical-align: -.125em;
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -5211,10 +5211,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-cloud"><div class="category" data-category="RGltZW5zaW9u"><span class="quarto-category-count category-cloud-10">Dimension</span></div><div class="category" data-category="RmFjdA=="><span class="quarto-category-count category-cloud-10">Fact</span></div><div class="category" data-category="T0xUUA=="><span class="quarto-category-count category-cloud-10">OLTP</span></div><div class="category" data-category="U3RhciUyMFNjaGVtYQ=="><span class="quarto-category-count category-cloud-10">Star Schema</span></div></div></div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -5224,7 +5223,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -5236,56 +5235,11 @@ window.Quarto = {
 </header>
 
 
-<p><strong>Week 1 introduction notes</strong></p>
-<section id="quick-summary-week-1-concepts" class="level2">
-<h2 class="anchored" data-anchor-id="quick-summary-week-1-concepts">📝 Quick Summary: Week 1 Concepts</h2>
-<section id="data-mart" class="level3">
-<h3 class="anchored" data-anchor-id="data-mart">🔹 Data Mart</h3>
+<p>I need to update the index page</p>
 <ul>
-<li>Subset of a data warehouse.</li>
-<li>Department-specific (e.g., sales, finance).</li>
-<li>Fast, small-scale, quick deployment.</li>
-<li>Uses <strong>star schema</strong>.</li>
-<li>Retains <strong>summarized data</strong>, short-term.</li>
-<li>Easier to manage (&lt; 100GB).</li>
-<li>Can be dependent, independent, or hybrid.</li>
-</ul>
-</section>
-<section id="data-warehouse" class="level3">
-<h3 class="anchored" data-anchor-id="data-warehouse">🔹 Data Warehouse</h3>
-<ul>
-<li>Central data repository for entire org.</li>
-<li>Integrates multiple subject areas.</li>
-<li>Large-scale, long-term historical storage.</li>
-<li>Uses complex schemas (star, snowflake, etc).</li>
-<li>Supports deep analytics and BI.</li>
-<li>Stores detailed <strong>normalized/denormalized</strong> data.</li>
-<li>Subject-oriented and time-variant.</li>
-</ul>
-</section>
-<section id="reliability" class="level3">
-<h3 class="anchored" data-anchor-id="reliability">🔹 Reliability</h3>
-<ul>
-<li>System works correctly even if parts fail.</li>
-<li>Needs testing, error recovery, monitoring.</li>
-</ul>
-</section>
-<section id="scalability" class="level3">
-<h3 class="anchored" data-anchor-id="scalability">🔹 Scalability</h3>
-<ul>
-<li>Handles growth in data/users/load.</li>
-<li>Measured using response time, load metrics.</li>
-</ul>
-</section>
-<section id="maintainability" class="level3">
-<h3 class="anchored" data-anchor-id="maintainability">🔹 Maintainability</h3>
-<ul>
-<li><p>Easy to fix, extend, and operate.</p></li>
-<li><p>Key principles: <strong>operability</strong>, <strong>simplicity</strong>, <strong>evolvability</strong>.</p></li>
 <li><p><a href="./intro/week1.html">Week 1 introduction</a></p></li>
-<li><p><a href="./intro/week2.html">View Project</a></p></li>
-<li><p><a href="./intro/week3.html">View Details</a></p></li>
-<li><p><a href="./intro/week3.html">View Details</a></p></li>
+<li><p><a href="./intro/week2.html">Week 2 introduction</a></p></li>
+<li><p><a href="./intro/week3.html">Week 3 introduction</a></p></li>
 </ul>
 <hr>
 
@@ -5294,12 +5248,10 @@ window.Quarto = {
 
 <!-- -->
 
-</section>
-</section>
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="U3RhciUyMFNjaGVtYSUyQ09MVFAlMkNGYWN0JTJDRGltZW5zaW9u" data-listing-file-modified-sort="1747869994517" data-listing-reading-time-sort="9" data-listing-word-count-sort="1724">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1747870196574" data-listing-reading-time-sort="9" data-listing-word-count-sort="1724">
 <a href="./projects/star_project_one/oltp_to_star_schema.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -5309,20 +5261,6 @@ window.Quarto = {
 <h5 class="no-anchor card-title listing-title">
 OLTP to Dimensional Modeling
 </h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory(&#39;U3RhciUyMFNjaGVtYQ==&#39;); return false;">
-Star Schema
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory(&#39;T0xUUA==&#39;); return false;">
-OLTP
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory(&#39;RmFjdA==&#39;); return false;">
-Fact
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory(&#39;RGltZW5zaW9u&#39;); return false;">
-Dimension
-</div>
-</div>
 <div class="card-text listing-description">
 Overview
 </div>
@@ -5973,60 +5911,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">  contents: projects</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">  sort: &quot;date desc&quot;</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">  type: grid # default table grid</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">  categories: cloud </span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>I need to update the index page</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>**Week 1 introduction notes**</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Week 1 introduction</span><span class="co">](intro/week1.qmd)</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📝 Quick Summary: Week 1 Concepts</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Week 2 introduction</span><span class="co">](intro/week2.qmd)</span></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">### 🔹 Data Mart</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Subset of a data warehouse.</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Department-specific (e.g., sales, finance).</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Fast, small-scale, quick deployment.</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Uses **star schema**.</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retains **summarized data**, short-term.</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Easier to manage (&lt; 100GB).</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Can be dependent, independent, or hybrid.</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">### 🔹 Data Warehouse</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Central data repository for entire org.</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Integrates multiple subject areas.</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Large-scale, long-term historical storage.</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Uses complex schemas (star, snowflake, etc).</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Supports deep analytics and BI.</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Stores detailed **normalized/denormalized** data.</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Subject-oriented and time-variant.</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">### 🔹 Reliability</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>System works correctly even if parts fail.</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Needs testing, error recovery, monitoring.</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">### 🔹 Scalability</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Handles growth in data/users/load.</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Measured using response time, load metrics.</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="fu">### 🔹 Maintainability</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Easy to fix, extend, and operate.</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Key principles: **operability**, **simplicity**, **evolvability**.</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Week 1 introduction</span><span class="co">](intro/week1.qmd)</span></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">View Project</span><span class="co">](intro/week2.qmd)</span></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">View Details</span><span class="co">](intro/week3.qmd)</span></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">View Details</span><span class="co">](intro/week3.qmd)</span></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Week 3 introduction</span><span class="co">](intro/week3.qmd)</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

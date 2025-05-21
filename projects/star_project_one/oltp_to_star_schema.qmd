@@ -2,7 +2,6 @@
 title: "OLTP to Dimensional Modeling"
 subtitle: "W03 - W05 Lab" # left blank
 image: "starschema.png"
-categories: ["Star Schema", "OLTP", "Fact", "Dimension"]
 format:
   html:
     self-contained: true
